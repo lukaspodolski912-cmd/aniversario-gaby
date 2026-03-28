@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-card: rgba(255, 255, 255, 0.97);
+  --text: #1a1a1a;
+  --shadow: 0 20px 50px rgba(0,0,0,.35);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  color: var(--text);
+
+  background: url('imagens/fundo.png') center / contain no-repeat fixed;
+  background-color: #000;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+
+  z-index: -1;
+}
+
+.stage {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.countdown-card {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.95);
+  box-shadow: var(--shadow);
+  max-width: 92%;
+  animation: fadeUp 0.8s ease;
+}
+
+.countdown-display {
+  font-size: 2.75rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #555;
+}
+
+#main {
+  position: relative;
+  overflow: hidden;
+}
+
+#main::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  background: linear-gradient(
+    120deg,
+    #fff0f3,
+    #ffe4e9,
+    #ffd6de
+  );
+}
+
+#main::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card {
+  width: min(900px, 92%);
+  background: var(--bg-card);
+  border-radius: 18px;
+  padding: 32px 38px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.3);
+  animation: fadeUp 0.8s ease;
+}
+
+.card-content {
+  max-width: 70ch;
+  margin: 0 auto;
+  line-height: 1.9;
+  font-size: 1.08rem;
+  color: #222;
+  text-align: justify;
+}
+
+.card-content p {
+  margin: 1.2rem 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.no-js .card-content p {
+  opacity: 1;
+  transform: none;
+}
+
+.card-content p.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  margin-top: 28px;
+  padding: 14px 24px;
+
+  border-radius: 999px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,.3);
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+@keyframes introZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(30px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+.countdown-card {
+  animation: introZoom 1.2s ease;
+}
+
+@media (max-width: 600px) {
+  .countdown-display {
+    font-size: 2.2rem;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card-content {
+    font-size: 1.02rem;
+  }
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+.stage {
+  transition: opacity 0.8s ease;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#prelaunch {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
