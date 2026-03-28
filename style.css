@@ -224,8 +224,17 @@ body::before {
 }
 
 #prelaunch {
-  min-height: 100vh;
+  position: fixed;
+  inset: 0;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  z-index: 10;
+}
+
+#main {
+  position: relative;
+  z-index: 1;
 }
