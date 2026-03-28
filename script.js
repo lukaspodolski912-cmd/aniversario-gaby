@@ -18,7 +18,7 @@ document.documentElement.classList.remove('no-js');
 
 (function () {
 
-  const targetDate = new Date('2026-04-27T00:00:00');
+  const targetDate = new Date('2026-03-27T00:00:00');
   const originalTitle = 'Parabéns, Gaby ❤️';
   const hiddenTitle = 'Mais perto do que longe!';
 
@@ -57,7 +57,11 @@ document.documentElement.classList.remove('no-js');
     prelaunch.classList.add('hidden');
 
     setTimeout(() => {
-      prelaunch.style.display = 'none';
+      prelaunch.classList.add('hidden');
+
+      setTimeout(() => {
+        prelaunch.style.display = 'none';
+      }, 800);
       main.classList.remove('hidden');
 
       setTimeout(() => {
